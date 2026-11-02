@@ -1,1 +1,9 @@
-{}
+{
+  "/blog/qa-guide": {
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Synthetic Git QA"
+    }
+  }
+}
