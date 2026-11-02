@@ -8,3 +8,5 @@ layout: "qa"
 <h2>Workflow steps</h2>
 <p>Review the synthetic guide before using this test.</p>
 <table><tbody><tr><td>Step</td><td>Owner</td></tr><tr><td>Review</td><td>QA</td></tr></tbody></table>
+
+<div class="ix-cta ix-a11"><p>Synthetic navigation only.</p><p><a href="https://hook-purse-pasta-prozac.trycloudflare.com/pages/qa-page/">View QA page</a></p></div>
