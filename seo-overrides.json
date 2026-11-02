@@ -1,1 +1,5 @@
-{}
+{
+  "/blog/qa-guide": {
+    "description": "Synthetic description updated through real Git commit."
+  }
+}
