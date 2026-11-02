@@ -1,9 +1,3 @@
 {
-  "redirects": [
-    {
-      "source": "/mx-git-1793657443558-redirect",
-      "destination": "/blog/qa-guide/",
-      "statusCode": 301
-    }
-  ]
+  "redirects": []
 }
