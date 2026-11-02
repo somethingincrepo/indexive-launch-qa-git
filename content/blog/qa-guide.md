@@ -8,6 +8,3 @@ layout: "qa"
 <h2>Workflow steps</h2>
 <p>Review the synthetic guide before using this test.</p>
 <table><tbody><tr><td>Step</td><td>Owner</td></tr><tr><td>Review</td><td>QA</td></tr></tbody></table>
-
-<h2 class="qa-answer">Synthetic answer</h2>
-<p class="qa-answer">This answer tests publishing.</p>
