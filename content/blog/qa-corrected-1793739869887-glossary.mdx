@@ -1,0 +1,47 @@
+---
+title: "What Is a Canonical URL? A Plain Definition With Examples"
+seoTitle: "Canonical URL Definition: What It Is and How It Works"
+description: "Get a plain canonical URL definition, examples of duplicate addresses, and how preferred URL signals differ from the page Google selects."
+---
+
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>By the Indexive QA editorial team (test attribution, no individual credentials). Visible article date: 2026-11-03.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>A canonical URL is the representative address that Google Search selects for a group of duplicate pages. The process of choosing it is called canonicalization, a search deduplication step that never tells a browser to navigate elsewhere. Site owners can state a preferred URL, but that preference and Google's selection are separate things.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Google's own wording is set out in <a href="https://developers.google.com/search/docs/crawling-indexing/canonicalization">Google's canonicalization documentation</a>, which is the source for this definition.</p>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Canonical URL definition</h2>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>A canonical URL is the page chosen to represent a group of duplicates in Search. Canonicalization is a search deduplication process, and a browser never treats it as an instruction to navigate elsewhere.</p>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Examples of duplicate URLs</h2>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>These patterns are illustrative examples and are not drawn from any dataset. Each shows one page reachable at several addresses.</p>
+<ul style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>
+<li>Trailing slash: the same page opens at /pricing and at /pricing/.</li>
+<li>Hostname: the same page opens under www and under the bare domain.</li>
+<li>Tracking parameter: the same page opens at /pricing and at /pricing?ref=newsletter.</li>
+</ul>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>In every case the content is identical, so one URL has to represent the group. That is the job canonicalization does.</p>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>How preferred URL signals work</h2>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>You can point toward your preferred URL in several ways, and they do not carry equal weight. According to <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls">Google's guidance on consolidating duplicate URLs</a>, rel=canonical and redirects are strong signals, while including a URL in a sitemap is a weaker one.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Google says canonical preferences should be consistent. Even a clean declaration remains a preference, because your preference and the URL Google selects are distinct.</p>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Canonical URL versus redirect and noindex</h2>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>These three are easy to confuse because they all deal with unwanted URLs. They behave differently.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>A 301 redirect means the resource has moved permanently. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/301">MDN's 301 reference</a> explains that the Location header names the destination, and the browser then requests that URL. A canonical link alone implies no redirect and sends no visitor anywhere.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Noindex is about keeping a page out of the index. Per <a href="https://developers.google.com/search/docs/crawling-indexing/block-indexing">Google's documentation on blocking indexing</a>, a noindex meta tag or header can prevent indexing when the crawler can access it. If robots.txt blocks crawling, Google never sees the rule. So a canonical consolidates duplicates, while noindex keeps a page out of the index, and a robots.txt block can hide the noindex from Google.</p>
+<h3 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Checking the canonical on the published page</h3>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Sanity's documentation says drafts and published documents are separate, and later draft edits do not change the published document until publication. Document text or updatedAt alone does not prove publication never occurred, and you should not assume how a frontend delivers content. An HTTP 200 only shows the request succeeded; it does not compare delivered copy with the approved draft. Read the canonical on the public page itself.</p>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Our fictional QA worksheets cover a baseline, a public readback and a rollback decision. They are labelled scenario specifications, with no commercial claims: <a href="https://scoring-spell-mailing-lenses.trycloudflare.com/qa-semantic-baseline-capture">Publishing Review Baseline Capture: Copy and Canonical URL</a>, then <a href="https://scoring-spell-mailing-lenses.trycloudflare.com/qa-semantic-public-readback">Publishing Review Public Readback: Published Copy and Canonical URL</a>, then <a href="https://scoring-spell-mailing-lenses.trycloudflare.com/qa-semantic-rollback-decision">Publishing Review Rollback Decision: Prior Copy and Canonical URL</a>.</p>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Related terms</h2>
+<ul style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>
+<li>Canonicalization: the search process that selects a representative URL for duplicate content.</li>
+<li>Duplicate content: the same page reachable at more than one URL.</li>
+<li>301 redirect: a permanent move that makes the browser request the destination.</li>
+<li>Noindex: a meta tag or header that can prevent indexing when the crawler can read it.</li>
+<li>robots.txt: a file that can block crawling, which stops Google from seeing a noindex rule.</li>
+<li>Sitemap: a list of URLs whose inclusion is a weaker canonical signal.</li>
+</ul>
+<h2 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Canonical URL questions</h2>
+<h3 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Will Google always use my canonical?</h3>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>No. A declared canonical is a preference, and the URL Google selects can differ. Google recommends keeping canonical preferences consistent.</p>
+<h3 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Does a canonical redirect visitors?</h3>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>No. Canonicalization is search deduplication and never sends a browser anywhere. Only a redirect such as a 301 makes the browser request another URL.</p>
+<h3 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Can I use noindex and a robots.txt block together?</h3>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>It defeats the purpose. Google can only act on noindex when it can access the page, and a robots.txt block prevents it from seeing the rule.</p>
+<h3 style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Which signal is strongest?</h3>
+<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>Google treats rel=canonical and redirects as strong signals. Sitemap inclusion is weaker, so keep all of them pointing at the same URL.</p>
