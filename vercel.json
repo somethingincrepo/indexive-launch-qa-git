@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/mx-repair-1793666866069",
-      "destination": "/blog/qa-guide/",
+      "destination": "/pages/qa-page/",
       "statusCode": 301
     }
   ]
