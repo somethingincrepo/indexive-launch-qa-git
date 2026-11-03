@@ -1,0 +1,80 @@
+---
+title: "How to Verify a Website Page After Publishing"
+seoTitle: "How to Verify a Website Page After Publishing"
+description: "Check the public URL, not the CMS preview. Confirm the live version, delivered copy, structured data, canonical, indexing directive and accessibility basics."
+schema: {"@graph":[{"@id":"https://node-belt-hughes-manga.trycloudflare.com/#organization","url":"https://node-belt-hughes-manga.trycloudflare.com","name":"Acme Analytics","@type":"Organization"},{"@id":"https://node-belt-hughes-manga.trycloudflare.com/blog/mx-worker-1793670640228-how-to/#faq","@type":"FAQPage","mainEntity":[{"name":"Does HTTP 200 mean the page is correct?","@type":"Question","acceptedAnswer":{"text":"No. It means the request succeeded. A 200 response does not compare what was delivered with what you approved, so you still need to read back the title, body and meta description.","@type":"Answer"}},{"name":"How do I tell a draft from a published document in Sanity?","@type":"Question","acceptedAnswer":{"text":"Look at the ID. Drafts have a drafts. prefix and published documents do not. Later draft edits do not change the published document until you publish.","@type":"Answer"}},{"name":"Why is my noindex page not being honored when robots.txt blocks it?","@type":"Question","acceptedAnswer":{"text":"Google cannot see a noindex rule on a page it is blocked from crawling. Remove the crawl block if you want the noindex to take effect.","@type":"Answer"}},{"name":"Which canonical signals are strongest?","@type":"Question","acceptedAnswer":{"text":"Rel=canonical and redirects are strong signals, and sitemap inclusion is weaker. Keep all of them pointing to the same URL.","@type":"Answer"}},{"name":"Do Easy Checks prove accessibility?","@type":"Question","acceptedAnswer":{"text":"No. They are preliminary checks, and passing them is not comprehensive conformance proof.","@type":"Answer"}},{"name":"How often should I recheck links?","@type":"Question","acceptedAnswer":{"text":"There is no sourced schedule, so pick one that suits your site and write it down. The U.S. Department of Health and Human Services' ODPHP puts it this way: Web content can become outdated quickly, so it’s important to check and replace broken links over time.","@type":"Answer"}}]}],"@context":"https://schema.org"}
+---
+
+<p>Verify a published page by checking the public URL itself, not the CMS preview: confirm the published version is live, read back the delivered title, body and meta description, then check structured data, canonical signals, the indexing directive and a few quick accessibility items. Record each result as pass or fail with a date.</p>
+<p>A saved draft, a published document and a correct public page are three separate states, and each can fail independently. Saving does not publish, and publishing does not prove the public page matches what you approved. The workflow below treats those as three events, and it uses a clearly fictional Northstar Lab QA demonstration page as a worked example. The Northstar Lab QA page is a synthetic example and does not describe a real company or a case study.</p>
+<h2>What You Need Before You Publish</h2>
+<p>Verification is only possible if you wrote down what &quot;correct&quot; means before you clicked publish. Gather these inputs first:</p>
+<ul>
+<li>An approved baseline copy of the title, body text and meta description.</li>
+<li>The canonical URL you intend the page to have.</li>
+<li>The indexing directive you intend, whether that is indexable or noindex.</li>
+<li>A rollback note, written before publishing, that says what you will restore and who decides. This is a workflow recommendation, not a sourced rule, but it gives a failed check a defined next action.</li>
+<li>A browser, a way to view page source, and a place to record results.</li>
+</ul>
+<p>If you work in a Sanity-style CMS, know how it marks state. Per <a href="https://www.sanity.io/docs/content-lake/drafts-and-versions">Sanity's documentation on drafts and versions</a>, draft documents carry a drafts. ID prefix and published documents do not.</p>
+<h2>Steps to Verify a Published Page</h2>
+<p>Run these checks in order against the public URL. Each one is an action, and each has a reason. Public HTTP delivery is only one layer here. Indexing, accessibility conformance and commercial outcomes are separate questions, and none of these steps claims to settle them.</p>
+<h3>1. Confirm the Published Version Is the One Live</h3>
+<p>Check that the document you edited is the published one and not a draft. Look at the document ID and make sure it has no drafts. prefix. Then reload the public URL and compare it with the published content.</p>
+<p>The reason is that, according to Sanity's documentation, the published perspective excludes unpublished changes, and later draft edits do not alter the published document until you publish again. If you kept editing after you published, the public page will not show those edits, which is expected behavior.</p>
+<p>If the public page still differs from the published content, suspect a stale cached copy. Treat a stale cache as something to investigate before you conclude anything. Reload with a cache bypass or check from a different browser before you decide anything is wrong.</p>
+<h3>2. Read Back the Delivered Title, Body and Meta Description</h3>
+<p>Open the page source on the public URL and compare the title, body headings, body text and meta description with your approved baseline. Do this even when the page loads fine.</p>
+<p>An HTTP 200 status only indicates request success. As <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200">MDN's reference on the 200 status</a> explains, a response status alone does not compare the delivered copy with an approved draft. A page can return 200 and still show the wrong paragraph, an old title or an empty meta description.</p>
+<p>While you are in the source, judge the title itself. Google recommends title elements that are distinct, descriptive, concise and accurate for the page content, per <a href="https://developers.google.com/search/docs/appearance/title-link">Google's title link documentation</a>. If your title duplicates another page's or says nothing about the topic, fix it now.</p>
+<p>In the fictional Northstar Lab QA example, the HTML carries a title, a meta description and a canonical URL. Those are exactly the three values you would copy from the source and tick against the baseline.</p>
+<h3>3. Check Structured Data Against the Visible Page</h3>
+<p>Find the JSON-LD block in the source and read each value it states. Then confirm each of those values appears on the rendered page.</p>
+<p>Structured data gives explicit information about what a page means and contains, and Google's introduction to structured data says to choose markup that represents the visible page content. Markup can be syntactically valid and still describe things a visitor cannot see, so a validator pass is not enough. Compare it with the text yourself. The fictional example carries WebPage JSON-LD, so the check there is whether its stated name and description match what the page shows.</p>
+<h3>4. Verify the Canonical URL and Its Supporting Signals</h3>
+<p>Find the rel=canonical tag, note any redirect that applies to the URL, and look up the page's sitemap entry. All three should name the same URL.</p>
+<p>Per <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls">Google's guidance on consolidating duplicate URLs</a>, rel=canonical and redirects are strong canonicalization signals, while sitemap inclusion is a weaker one, and canonical preferences should be consistent. If the tag points to one address and the sitemap lists another, you have created ambiguity about the preferred URL. Fix the weaker signal to match the stronger one, or correct the tag if it is the one that is wrong. The fictional example publishes a canonical URL, which gives you a concrete value to compare.</p>
+<h3>5. Confirm the Indexing Directive Is Intentional</h3>
+<p>Check the page source and response headers for a noindex directive, and decide whether its presence or absence matches your plan. Then open robots.txt and make sure it does not block a page that is meant to carry noindex.</p>
+<p>This is an easy place to go wrong. According to Google's documentation on blocking indexing, a noindex meta tag or header can prevent indexing when the crawler can access it, and blocking crawling in robots.txt prevents Google from seeing that rule. A noindex page that robots.txt blocks is not protected by its noindex.</p>
+<p>The fictional Northstar Lab QA page is intentionally noindex,nofollow. For that page, a pass means the directive is present. Do not remove it. Also keep this check in its lane: it confirms what the page says, and it does not tell you whether or when any search engine has indexed anything.</p>
+<h3>6. Run Quick Accessibility Checks</h3>
+<p>On the public page, work through the W3C Easy Checks: page title, alternative text, headings, contrast and keyboard access. Tab through the page without a mouse and note anything you cannot reach.</p>
+<p>These are preliminary checks. W3C is explicit that passing them is not comprehensive accessibility conformance proof, so record the result as preliminary only and never as &quot;accessible&quot;.</p>
+<h2>Checklist Table for Post-Publish Verification</h2>
+<p>Use this as a record sheet. For each item, write pass or fail and the date, and keep those entries apart from any traffic or business numbers you track later. Each entry lists what to inspect, the acceptable result and the next action if it fails.</p>
+<ul>
+<li>Published state. Inspect the document ID and the public page. Acceptable: no drafts. prefix and public content matches the published document. If it fails: publish the intended version, clear the cache and recheck.</li>
+<li>Delivered title, body and meta description. Inspect the page source. Acceptable: all three match the approved baseline and the title is distinct and descriptive. If it fails: correct the content, republish and rerun the checklist.</li>
+<li>Structured data. Inspect the JSON-LD. Acceptable: every stated value is visible on the page. If it fails: fix the markup or the visible text so they agree.</li>
+<li>Canonical signals. Inspect the canonical tag, redirects and sitemap. Acceptable: all name the same URL. If it fails: align the weaker signals with the intended canonical.</li>
+<li>Indexing directive and robots.txt. Inspect the meta tag, headers and robots.txt. Acceptable: the directive matches intent and robots.txt does not block a noindex page. If it fails: correct the directive or the robots.txt rule.</li>
+<li>Preliminary accessibility. Inspect with the Easy Checks. Acceptable: no issues found on the listed items, recorded as preliminary. If it fails: fix the item and recheck.</li>
+<li>Links over time. Inspect the page's links on a schedule. Acceptable: none broken. If it fails: replace or remove the broken link.</li>
+</ul>
+<h2>What to Do When Verification Fails</h2>
+<p>The workflow below is our recommendation and does not come from a sourced rule. First, record the failing check exactly as you saw it. Second, decide the likely cause: the wrong version went live, the metadata is wrong, or the directive is wrong.</p>
+<p>Third, fix it if you can do so quickly. If you cannot, roll back to the approved baseline using the note you wrote earlier, and do not improvise a fix on a live page. Fourth, republish and rerun the whole checklist, not just the check that failed, because a fix can break something that passed before.</p>
+<p>The fictional Northstar Lab QA example follows a baseline, change, publish and public-verification process, and its public HTML carries a title, meta description, canonical URL and WebPage JSON-LD, with an intentional noindex,nofollow. Use it only as an illustration of the sequence. It is a synthetic demonstration, not a case study, and when you run this workflow the page's noindex stays in place.</p>
+<h2>Common Mistakes</h2>
+<ul>
+<li>Treating HTTP 200 as proof of correct copy. Compare the delivered text with the baseline, as in step 2.</li>
+<li>Assuming a saved draft is published. Check for the drafts. prefix and reload the public URL.</li>
+<li>Blocking crawling in robots.txt on a page that relies on noindex. Let the crawler reach the page so it can see the rule.</li>
+<li>Mixing canonical signals. Make the tag, redirect and sitemap name one URL.</li>
+<li>Treating Easy Checks as full accessibility conformance, or never rechecking links after launch.</li>
+</ul>
+<p>All of these share a root cause: one passing check gets treated as proof, and the other failures go unnoticed.</p>
+<h2>FAQ</h2>
+<h3>Does HTTP 200 mean the page is correct?</h3>
+<p>No. It means the request succeeded. A 200 response does not compare what was delivered with what you approved, so you still need to read back the title, body and meta description.</p>
+<h3>How do I tell a draft from a published document in Sanity?</h3>
+<p>Look at the ID. Drafts have a drafts. prefix and published documents do not. Later draft edits do not change the published document until you publish.</p>
+<h3>Why is my noindex page not being honored when robots.txt blocks it?</h3>
+<p>Google cannot see a noindex rule on a page it is blocked from crawling. Remove the crawl block if you want the noindex to take effect.</p>
+<h3>Which canonical signals are strongest?</h3>
+<p>Rel=canonical and redirects are strong signals, and sitemap inclusion is weaker. Keep all of them pointing to the same URL.</p>
+<h3>Do Easy Checks prove accessibility?</h3>
+<p>No. They are preliminary checks, and passing them is not comprehensive conformance proof.</p>
+<h3>How often should I recheck links?</h3>
+<p>There is no sourced schedule, so pick one that suits your site and write it down. The U.S. Department of Health and Human Services' ODPHP puts it this way: <q>Web content can become outdated quickly, so it’s important to check and replace broken links over time.</q></p>
