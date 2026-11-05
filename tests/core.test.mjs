@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+const core = await import('../lib/core.mjs').catch(()=>({}));
+test('rejects executable MDX while allowing adapter HTML JSX',()=>{assert.equal(typeof core.validateMdx,'function'); assert.doesNotThrow(()=>core.validateMdx('<p data-indexive-id="ix-12345678">ok</p>')); for(const s of ['import X from "x"','export const x=1','<p>{process.env.SECRET}</p>','<p onClick="x">bad</p>','<Script />','<a href="javascript:alert(1)">bad</a>'])assert.throws(()=>core.validateMdx(s));});
+test('excludes drafts, versions, future and malformed dates',()=>{assert.equal(typeof core.eligible,'function'); const d={_id:'a',_type:'page',slug:{current:'qa-page'}}; assert.equal(core.eligible(d),true); for(const patch of [{_id:'drafts.a'},{_id:'versions.a'},{publishedAt:'2099-01-01'},{publishedAt:'bad'},{slug:{current:'../x'}}])assert.equal(core.eligible({...d,...patch}),false);});
+test('Sanity rollback absence is null, transport failure throws',async()=>{assert.equal(typeof core.readSanity,'function'); assert.equal(await core.readSanity('gone',async()=>({ok:true,json:async()=>({result:[]})})),null); await assert.rejects(core.readSanity('gone',async()=>({ok:false,status:503})));});
+test('rejects unsafe JSX attribute surfaces and encoded protocols',()=>{for(const s of ['<a href="jav&#x61;script:alert(1)">x</a>','<div dangerouslySetInnerHTML="bad"/>','<iframe srcDoc="x"/>','<x-custom/>','<a href="//evil.test">x</a>'])assert.throws(()=>core.validateMdx(s));});

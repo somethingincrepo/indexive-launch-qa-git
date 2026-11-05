@@ -1,0 +1,1 @@
+export default function Home(){return <article><p>DISPOSABLE QA ENVIRONMENT</p><h1>Publishing, verified in public.</h1><p>This fictional lab checks Git compilation and anonymous Sanity publishing. Every sample is synthetic.</p><p><a href="/pages/qa-page">View the Git page</a> · <a href="/home">View the Sanity page</a> · <a href="/health">Source health</a></p></article>}
