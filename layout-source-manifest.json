@@ -1,6 +1,41 @@
 {
-  "sourceCommit": "d197c641",
-  "source": "packages/contracts/src/article-layout.ts",
-  "sha256": "2e2e3a095d6f33788591d61884ccca2f2342eb6441f41d46328e26ec331c7bc2",
-  "capability": "page-composition-v3"
+  "sourceCommit": "a4fc41d27cc45d04668a1f372c45520944330aa9",
+  "capabilities": [
+    "inline-wrap-v3",
+    "page-composition-v4",
+    "table-cell-spacing-v1",
+    "table-prose-column-v1"
+  ],
+  "files": [
+    {
+      "source": "packages/contracts/src/article-layout.ts",
+      "sourceSha256": "f7eb04887d701f07e83308c90f48bd1cc1d94517bd67e465bb2ea2ce99e98782",
+      "generated": "lib/layout.mjs",
+      "generatedSha256": "6815f45ccb63047b0d04e0f35e4675af9354caec80aa60b5922223f1205ecfe3",
+      "scope": "finite contract only"
+    },
+    {
+      "source": "packages/cms-adapters/src/article-layout.ts",
+      "sourceSha256": "e83d0696392103777250fada9ec44e79cb2c9dcb5cff8220c920303d4532d44f",
+      "generated": "lib/layout-ownership.mjs",
+      "generatedSha256": "bebb7fdc713f57679606d3e95cdef1240b2dd70ff375916e167744dd15a932c1",
+      "scope": "table source identity and ownership validation only; no page compiler"
+    },
+    {
+      "source": "packages/cms-adapters/src/prose-columns.ts",
+      "sourceSha256": "73b9ce2f005aef8206c4876ab14e670b4d608579cf7a99bc334f086855e8829a",
+      "generated": "lib/prose-ownership.mjs",
+      "generatedSha256": "e60bb1442e15aa94e7a5cf81d8d0e1f6c54c718b61ed5813496dd79ce4818cf5",
+      "scope": "prose eligibility and source ownership recovery validation only; no page compiler"
+    }
+  ],
+  "history": [
+    {
+      "note": "Historical manifest retained as prior provenance only; superseded by the current files/capabilities above.",
+      "sourceCommit": "d197c641",
+      "source": "packages/contracts/src/article-layout.ts",
+      "sha256": "2e2e3a095d6f33788591d61884ccca2f2342eb6441f41d46328e26ec331c7bc2",
+      "capability": "page-composition-v3"
+    }
+  ]
 }
