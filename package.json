@@ -1,0 +1,23 @@
+{
+  "name": "indexive-durable-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "node scripts/prepare-git-pages.mjs",
+    "build": "next build --webpack",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@next/mdx": "16.4.1",
+    "@mdx-js/loader": "3.1.1",
+    "@mdx-js/react": "3.1.1",
+    "remark-frontmatter": "5.0.0",
+    "cheerio": "1.1.2",
+    "gray-matter": "4.0.3",
+    "marked": "17.0.1"
+  }
+}

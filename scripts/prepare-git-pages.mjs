@@ -1,0 +1,10 @@
+import fs from 'node:fs';import path from 'node:path';import matter from 'gray-matter';import {marked} from 'marked';import {sanitizeHtml} from '../lib/renderer.mjs';import {validateMdx,jsonLd} from '../lib/core.mjs';
+const root=process.cwd();const overrides=JSON.parse(fs.readFileSync('seo-overrides.json','utf8'));const manifest=[];
+for(const group of ['pages','blog']){fs.rmSync(`app/${group}`,{recursive:true,force:true});for(const file of fs.readdirSync(`content/${group}`)){
+ if(!/\.(md|mdx)$/.test(file))continue;const slug=file.replace(/\.(md|mdx)$/,'');if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw Error('Invalid Git slug');
+ const relative=`content/${group}/${file}`;const {data,content}=matter(fs.readFileSync(relative,'utf8'));if(data.draft===true||data.status==='draft')continue;if(data.publishedAt&&(!Number.isFinite(Date.parse(data.publishedAt))||Date.parse(data.publishedAt)>Date.now()))continue;
+ const seo={...data,...(overrides[relative]??overrides[`/${group}/${slug}`]??{})};const meta={title:(overrides[relative]??overrides[`/${group}/${slug}`]??{}).title??seo.seoTitle??seo.title,description:seo.description,robots:{index:false,follow:false},alternates:{canonical:seo.canonical??seo.canonicalUrl??`${process.env.PUBLIC_SITE_URL??'http://localhost:9465'}/${group}/${slug}`}};
+ const dir=`app/${group}/${slug}`;fs.mkdirSync(dir,{recursive:true});let imp='',body='';if(file.endsWith('.mdx')){validateMdx(content);imp=`import Content from '../../../${relative}';`;body='<Content />';}else body=`<div dangerouslySetInnerHTML={{__html:${JSON.stringify(sanitizeHtml(marked.parse(content)))}}} />`;
+ let schema='';if(seo.schema)schema=`<script type="application/ld+json" dangerouslySetInnerHTML={{__html:${JSON.stringify(jsonLd(seo.schema))}}}/>`;
+ fs.writeFileSync(`${dir}/page.jsx`,`${imp}\nexport const metadata=${JSON.stringify(meta)};export default function Page(){return <article><h1>{${JSON.stringify(data.title??slug)}}</h1>${schema}${body}</article>}`);manifest.push({slug:`${group}/${slug}`,title:data.title});}}
+fs.writeFileSync('lib/git-manifest.json',JSON.stringify(manifest));

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validateMdx} from '../lib/core.mjs';
+test('accepts only finite adapter style JSON in MDX',()=>{assert.doesNotThrow(()=>validateMdx('<p style={{"maxWidth":"100%","overflowWrap":"anywhere","boxSizing":"border-box"}}>ok</p>'));assert.throws(()=>validateMdx('<p style={{"position":"fixed"}}>bad</p>'));assert.throws(()=>validateMdx('<p style={{"maxWidth":process.env.X}}>bad</p>'));});

@@ -1,0 +1,1 @@
+export default function NotFound(){return <article><h1>Page not found</h1><p>This QA route is absent or has been rolled back.</p></article>}
