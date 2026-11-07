@@ -8,3 +8,5 @@ layout: "qa"
 <h2>Workflow steps</h2>
 <p>Review the synthetic guide before using this test.</p>
 <table><tbody><tr><td>Step</td><td>Owner</td></tr><tr><td>Review</td><td>QA</td></tr></tbody></table>
+
+<h2 class="ix-cb8d3832">Frequently asked questions</h2><h3 id="what-does-the-e2e-202611070248-check-do" class="ix-cb8d3832">What does the E2E 202611070248 check do?</h3><p class="ix-cb8d3832">It publishes a small question and answer, checks the live page and takes it out again.</p>
