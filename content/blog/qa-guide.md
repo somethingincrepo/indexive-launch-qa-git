@@ -8,5 +8,3 @@ layout: "qa"
 <h2>Workflow steps</h2>
 <p>Review the synthetic guide before using this test.</p>
 <table><tbody><tr><td>Step</td><td>Owner</td></tr><tr><td>Review</td><td>QA</td></tr></tbody></table>
-
-<div class="ix-cta ix-9a4267ee"><h3 id="e2e-202611070248-call-to-action">E2E 202611070248 call to action</h3><p>See how we handle this, what it covers and what it costs (E2E 202611070248).</p><p><a href="https://indexive-durable-cms-qa.vercel.app/pages/qa-page">E2E 202611070248 see the page</a></p></div>
