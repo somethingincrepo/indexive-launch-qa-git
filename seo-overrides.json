@@ -1,1 +1,14 @@
-{}
+{
+  "/blog/qa-guide": {
+    "schema": {
+      "@type": "Article",
+      "@context": "https://schema.org",
+      "headline": "E2E 202611070248 article",
+      "publisher": {
+        "name": "Indexive launch QA — Git",
+        "@type": "Organization"
+      },
+      "mainEntityOfPage": "https://indexive-durable-cms-qa.vercel.app/blog/qa-guide"
+    }
+  }
+}
