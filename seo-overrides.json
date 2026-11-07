@@ -1,4 +1,7 @@
 {
+  "/blog/mx-worker-guide": {
+    "description": "Indexive check 202611070348: a short test description that is removed again."
+  },
   "/blog/qa-guide": {
     "schema": {
       "@context": "https://schema.org",
