@@ -2,7 +2,7 @@
 # Disposable Indexive git-lane fixture
 title: 'Indexive rel CRLF fixture'
 seoTitle: "Indexive rel crlf seo"   # keep
-description: Disposable git-lane fixture, no client data.
+description: Indexive rel new description.
 layout: "qa"
 ---
 <p>Indexive rel fixture opening paragraph, long enough to prove which file renders this page on the live site.</p>
