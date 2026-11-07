@@ -5,6 +5,7 @@ description: "Disposable synthetic publishing fixture."
 layout: "qa"
 ---
 <p>Indexive QA synthetic guide contains no client data.</p>
+<div class="ix-callout ix-679f9515" style="border-left:3px solid currentColor;padding:12px 16px;margin:24px 0"><p>Short answer: E2E 202611070248 callout: the short answer sits in a box right after the introduction.</p></div>
 <h2>Workflow steps</h2>
 <p>Review the synthetic guide before using this test.</p>
 <table><tbody><tr><td>Step</td><td>Owner</td></tr><tr><td>Review</td><td>QA</td></tr></tbody></table>
