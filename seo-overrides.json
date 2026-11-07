@@ -1,1 +1,19 @@
-{}
+{
+  "/blog/mx-worker-guide": {
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Indexive check 202611070026",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Indexive check 202611070026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A short automatic check."
+          }
+        }
+      ]
+    }
+  }
+}
