@@ -1,9 +1,7 @@
 # Copy for the Indexive QA YAML page. Synthetic only.
-seoTitle: "Indexive YAML page"   # the title tag
+seoTitle: "Indexive check 202611080653"   # the title tag
 description: >-
-  A synthetic page whose text lives in a YAML file, for the Indexive QA sweep.
+  Indexive check 202611080653: a short test description that is removed again.
 heading: Indexive YAML page
 body: |
-  <p>This synthetic page keeps its text in a YAML file that its route reads.</p>
-  <p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p>
-  <p>The file is named for the page, so changing it changes only this page.</p>
+  <p>Indexive check 202611080653: this paragraph is added to the page and taken out again right away.</p><p>This synthetic page keeps its text in a YAML file that its route reads.</p> <p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p> <p>The file is named for the page, so changing it changes only this page.</p>
