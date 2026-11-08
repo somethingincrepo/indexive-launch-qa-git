@@ -5,7 +5,5 @@ description: >-
 heading: Indexive YAML page
 body: |
   <p>This synthetic page keeps its text in a YAML file that its route reads.</p>
-  <h2 class="ix-52cf04b4">Indexive check 202611080653</h2>
-  <p class="ix-52cf04b4">This section is a short Indexive check 202611080653 and is taken out again right away.</p>
   <p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p>
   <p>The file is named for the page, so changing it changes only this page.</p>
