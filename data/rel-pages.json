@@ -3,7 +3,7 @@
     {
       "slug": "rel-data-one",
       "seoTitle": "Indexive data page one",
-      "description": "Indexive check 202611080614: a short test description that is removed again.",
+      "description": "A synthetic page whose text lives in a JSON data file, for the Indexive QA sweep.",
       "heading": "Indexive data page one",
       "body": "<p>This synthetic page keeps its text in a data file instead of a Markdown file, in a café style of \"quoted\" copy.</p><p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p><h2>Why a data file</h2><p>Many sites keep page copy in JSON, so this page does the same.</p>"
     },
