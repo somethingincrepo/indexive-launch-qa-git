@@ -4,6 +4,6 @@ description: >-
   A synthetic page whose text lives in a YAML file, for the Indexive QA sweep.
 heading: Indexive YAML page
 body: |
-  <p>This synthetic page keeps its text in a YAML file that its route reads.</p>
+  <p><a href="https://indexive-durable-cms-qa.vercel.app/pages/qa-page">This synthetic page</a> keeps its text in a YAML file that its route reads.</p>
   <p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p>
   <p>The file is named for the page, so changing it changes only this page.</p>
