@@ -7,3 +7,6 @@ body: |
   <p>This synthetic page keeps its text in a YAML file that its route reads.</p>
   <p>Nothing here is a real service, customer or offer. It exists so the publishing checks can run.</p>
   <p>The file is named for the page, so changing it changes only this page.</p>
+
+  <!-- indexive-jsonld -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Indexive check 202611080653","mainEntity":[{"@type":"Question","name":"What is Indexive check 202611080653?","acceptedAnswer":{"@type":"Answer","text":"A short automatic check."}}]}</script>
