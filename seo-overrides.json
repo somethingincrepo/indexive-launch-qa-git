@@ -1,18 +1,1 @@
-{
-  "/blog/mx-worker-guide": {
-    "schema": {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does the E2E 20261110234037 check do?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It publishes a small question and answer, checks the live page and takes it out again."
-          }
-        }
-      ]
-    }
-  }
-}
+{}
