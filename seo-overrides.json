@@ -1,14 +1,1 @@
-{
-  "/blog/mx-worker-guide": {
-    "schema": {
-      "@type": "Article",
-      "@context": "https://schema.org",
-      "headline": "E2E 20261110234037 article",
-      "publisher": {
-        "name": "Indexive launch QA — Git",
-        "@type": "Organization"
-      },
-      "mainEntityOfPage": "https://indexive-durable-cms-qa.vercel.app/blog/mx-worker-guide"
-    }
-  }
-}
+{}
